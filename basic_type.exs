@@ -35,3 +35,14 @@ IO.puts String.length("hellö") # 문자열 길이
 IO.puts String.upcase("hellö")
 # 큰따옴표랑 작은따옴표랑은 다름
 IO.puts 'hellö' == "hellö"
+
+# 익명함수
+add = fn a, b -> a + b end
+IO.puts is_function(add)
+IO.puts is_function(add, 2)
+IO.puts add.(1, 2)
+add_two = fn a -> add.(a, 2) end
+IO.puts add_two.(2)
+x = 42
+IO.puts (fn -> x = 0 end).()
+IO.puts  x
