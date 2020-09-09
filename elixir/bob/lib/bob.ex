@@ -1,11 +1,29 @@
 defmodule Bob do
+defp question?(input) do
+    String.ends_with?(input, "?")
+  end
+
+  defp yell?(input) do
+    String.upcase(input) == input && String.upcase(input) != String.downcase(input)
+  end
   def hey(input) do
+    input = String.trim(input)
+
     cond do
-      String.match?(input, ~r/(?=.*[a-z]\?+$)$/) -> "Sure."
-      String.match?(input, ~r/^[^a-z]*[^?]$/) -> "Whoa, chill out!"
-      String.match?(input, ~r/^[^a-z]*\?+$/) -> "Calm down, I know what I'm doing!"
-      String.match?(input, ~r/^[\s\t]*$/) -> "Fine. Be that way!"
-      true -> "Whatever."
+      input == "" ->
+        "Fine. Be that way!"
+
+      yell?(input) && question?(input) ->
+        "Calm down, I know what I'm doing!"
+
+      yell?(input) ->
+        "Whoa, chill out!"
+
+      question?(input) ->
+        "Sure."
+
+      true ->
+        "Whatever."
     end
   end
 end
