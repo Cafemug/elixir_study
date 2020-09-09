@@ -7,7 +7,8 @@ defmodule WordCount do
   @spec count(String.t()) :: map
   def count(sentence) do
     sentence
-    |> String.split()
+    |> String.downcase()
+    |> String.split([":", "!", "&", "@", "$", "%", "^", ",", " ", "_"], trim: true)
     |> word_count(%{})
   end
 
