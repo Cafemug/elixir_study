@@ -1,4 +1,10 @@
 defmodule RnaTranscription do
+  @c_map %{
+    ?G => 67,
+    ?C => 71,
+    ?T => 65,
+    ?A => 85
+  }
   @doc """
   Transcribes a character list representing DNA nucleotides to RNA
 
@@ -9,15 +15,6 @@ defmodule RnaTranscription do
   """
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    cond do
-      dna == 'G' -> 
-        'C'
-      dna == 'C' -> 
-        'G'
-      dna == 'T' -> 
-        'A'
-      dna == 'A' -> 
-        'U'
-    end
+    Enum.map(dna,fn x -> @c_map[x] end)
   end
 end
