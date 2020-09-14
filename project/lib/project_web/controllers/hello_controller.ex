@@ -2,10 +2,13 @@ defmodule ProjectWeb.HelloController do
   use ProjectWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    render(conn, :index)
   end
   
   def show(conn, %{"messenger" => messenger}) do
-    render(conn, "show.html", messenger: messenger)
+    conn
+    |> assign(:messenger, messenger)
+    |> assign(:receiver, "Dweezil")
+    |> render("show.html")
   end
 end
