@@ -19,13 +19,31 @@ defmodule ProjectWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
-    resources "/sessions", SessionController, only: [:new, :create, :delete],
-                                              singleton: true
+    resources "/sessions", SessionController, only: [:new, :create, :delete], singleton: true
     get "/redirect_test", PageController, :redirect_test
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
+
+
   end
 
+  defp authenticate_user(conn, _) do
+    case get_session(conn, :user_id) do
+      nil ->
+        conn
+        |> Phoenix.Controller.put_flash(:error, "Login required")
+        |> Phoenix.Controller.redirect(to: "/")
+        |> halt()
+      user_id ->
+        assign(conn, :current_user, Project.Accounts.get_user!(user_id))
+    end
+  end
+
+  scope "/cms", ProjectWeb.CMS, as: :cms do
+    pipe_through [:browser, :authenticate_user]
+
+    resources "/pages", PageController
+  end
   # Other scopes may use custom stacks.
   # scope "/api", ProjectWeb do
   #   pipe_through :api
@@ -46,4 +64,5 @@ defmodule ProjectWeb.Router do
       live_dashboard "/dashboard", metrics: ProjectWeb.Telemetry
     end
   end
+
 end

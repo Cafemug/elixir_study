@@ -1,8 +1,12 @@
-defmodule Project.SessionController do
+defmodule ProjectWeb.SessionController do
   use ProjectWeb, :controller
 
   alias Project.Accounts
 
+  def index(conn, _params) do
+    users = Accounts.list_users()
+    render(conn, "index.html", users: users)
+  end
   def new(conn, _) do
     render(conn, "new.html")
   end
@@ -27,4 +31,5 @@ defmodule Project.SessionController do
     |> configure_session(drop: true)
     |> redirect(to: "/")
   end
+
 end
