@@ -19,6 +19,8 @@ defmodule ProjectWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/sessions", SessionController, only: [:new, :create, :delete],
+                                              singleton: true
     get "/redirect_test", PageController, :redirect_test
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
