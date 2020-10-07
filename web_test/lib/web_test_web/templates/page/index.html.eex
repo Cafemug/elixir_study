@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col md-form mt-0">
+            워크스페이스 관리
+        </div>
+    </div>
+    <div class="row">
+        <hr/>
+    </div>
+    <div class="input-group mt-3 mb-3">
+        <div class="input-group-prepend">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+      Dropdown button
+    </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+        </div>
+        <input type="text" class="form-control" placeholder="Username">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Button</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th>First column</th>
+                        <th>Second column</th>
+                        <th>Third column</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Introducing</td>
+                        <td>jQuery</td>
+                        <td>Searchable</td>
+                    </tr>
+                    <tr>
+                        <td>Lorem</td>
+                        <td>Ipsum</td>
+                        <td>Dolor</td>
+                    </tr>
+                    <tr>
+                        <td>Some</td>
+                        <td>More</td>
+                        <td>Data</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+</div>

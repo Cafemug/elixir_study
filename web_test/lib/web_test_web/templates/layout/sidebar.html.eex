@@ -1,0 +1,7 @@
+<div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">서비스 운영 </div>
+    <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">워크스페이스 관리</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">사용자 조회</a>
+    </div>
+</div>
